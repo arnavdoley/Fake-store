@@ -1,6 +1,6 @@
-import { getitems } from "../../action/ItemAction"
 
-export default (id)=> {
+
+ const Action =()=> {
  return (dispatch)=>(
          fetch('https://fakestoreapi.com/products')
        .then(res=>res.json())
@@ -11,3 +11,4 @@ export default (id)=> {
  )
 
 }
+export default Action

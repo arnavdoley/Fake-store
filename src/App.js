@@ -33,8 +33,7 @@ function App({item,cart,dispatch}) {
 
   return (
     <div className="App">
-      {console.log(item)}
-      {console.log(cart)}
+      
       
         <nav class="navbar navbar-expand navbar-light bg-light">
         
@@ -57,6 +56,7 @@ function App({item,cart,dispatch}) {
             </div>
           </div>
         </nav>
+        {error&&(<div className="alert alert-danger" role="alert"> {error} </div>)}
         <Routes>
           <Route path="/" element={<Items />} />
           <Route path="/login" element={<Login></Login>}></Route>
@@ -68,7 +68,7 @@ function App({item,cart,dispatch}) {
     </div>
   );
 }
-function CustomLink({children, to , ...props}){
+function CustomLink({children, to }){
 let resolve=useResolvedPath(to);
 let match = useMatch({path:resolve.pathname})
 

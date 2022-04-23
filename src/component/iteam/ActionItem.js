@@ -1,10 +1,9 @@
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import React from "react";
-import { useEffect } from "react";
-export default () => {
-  const [cart, setcart] = React.useState([]);
-  const [count, setcount] = React.useState(0);
-  const price= useSelector((state)=>state.iteam.price)
+
+
+
+ const  ActionItem = () => {
   const pro = useSelector((state) => state.iteam.item,shallowEqual);
  const dispatch =useDispatch()
  
@@ -19,7 +18,7 @@ export default () => {
  } 
  const handleTotal=()=>{
   const total=  pro.map((val)=>{return val.it.price*val.count})
-  console.log(total)
+  
  const sum= total.reduce((partialSum, a) => partialSum + a, 0);
  return (Math.round(sum * 100))/100.0
 }
@@ -43,15 +42,16 @@ export default () => {
       
     <div>
         <h1>Cart</h1>
-        {console.log(pro)}
+        
       {pro.map((val,index) => {
         return (
           <div className="d-flex justify-content-around align-items-center cart border border-primary rounded">
             <img
               src={val.it.image}
-              class="img-fluid img-thumbnail"
+              className="img-fluid img-thumbnail"
               width="100"
               height="100"
+              alt="producImage"
             ></img>
             <h4>{val.it.title}</h4>
             <div className="d-flex flex-column align-self-center">
@@ -69,3 +69,4 @@ export default () => {
     {pro.length>0&&(<h2>{handleTotal()}</h2>)}
     </div>);
 };
+export default ActionItem;
