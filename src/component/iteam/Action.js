@@ -1,8 +1,8 @@
 
 
  const Action =()=> {
- return (dispatch)=>(
-         fetch('https://fakestoreapi.com/products')
+ return async(dispatch)=>(
+        await fetch('https://fakestoreapi.com/products')
        .then(res=>res.json())
        .then(data=>{dispatch({
            type : 'get_items',

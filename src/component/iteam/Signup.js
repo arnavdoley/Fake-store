@@ -21,7 +21,7 @@ export default function Signup() {
     }
   }
   return (
-    <div>
+    <div className='contain'>
       {error&&(<div classNmae="alert alert-danger" role="alert">
   {error}
 </div>)}
@@ -34,10 +34,6 @@ export default function Signup() {
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onChange={(event)=>{setpassword(event.target.value)}}/>
-    </div>
-    <div class="form-group form-check">
-      <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <button type="submit" className="btn btn-primary">signup</button>
 

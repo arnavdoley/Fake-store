@@ -31,7 +31,7 @@ const mapToProps = (state)=>(
 
  }
   return (
-    <div>
+    <div className='contain'>
         {error&&(<div className="alert alert-danger" role="alert">
   {error}
 </div>)}
@@ -45,9 +45,7 @@ const mapToProps = (state)=>(
       <label for="exampleInputPassword1">Password</label>
       <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onChange={(event)=>{setpassword(event.target.value)}}/>
     </div>
-    {/* <GoogleButton
-  onClick={() => { console.log('Google button clicked') }}
-/> */}
+  
     <button type="submit" className="btn btn-primary">Login</button>
   
   </form></div>
