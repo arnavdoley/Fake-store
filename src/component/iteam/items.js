@@ -7,8 +7,9 @@ import { useUserContex } from "../../contex/UserAuthContex";
 
 const mapToProps = (state) => ({
   items: state.iteam.items,
+  item:state.iteam.item
 });
-function Items({ items, dispatch }) {
+function Items({ items,item, dispatch }) {
   const { User } = useUserContex();
   const navigate = useNavigate();
   const additem = (val) => {
@@ -44,7 +45,7 @@ function Items({ items, dispatch }) {
 
                   <div className="buy d-flex justify-content-between align-items-center">
                     <div className="price text-success">
-                      <h5 class="mt-4" style={{ position: "absolute", left: 10 ,bottom:25}}>${val.price}</h5>
+                      <h5 className="mt-4" style={{ position: "absolute", left: 10 ,bottom:25}}>${val.price}</h5>
                     </div>
                     <button
                       className="btn btn-danger mt-3"

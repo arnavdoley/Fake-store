@@ -40,11 +40,17 @@ export default function ItemReducer(state=combine,action){
          case"delete_quant":
 
       const newData= state.item.map(obj=>obj.it.id===action.payload.it.id?{...obj, count:obj.count-1}:obj);
-      return {...state,item:newData}
+          const test= state.item.filter((val)=>(val.it.id===action.payload.it.id && action.payload.count===1 ))
+          if(test.length===0){
+               return {...state,item:newData}
+          }
+     else{
+        return{...state , item: state.item.filter((val)=>val.it.id!==action.payload.it.id)}
+     }
   
          case "delete_item":
            
-             return{...state , item: state.item.filter((value,index)=>index!==action.payload)
+             return{...state , item: state.item.filter((val,index)=>index!==action.payload)
 
                  
              }

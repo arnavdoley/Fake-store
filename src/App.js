@@ -38,12 +38,12 @@ function App({ item, cart, dispatch }) {
 
   return (
     <div >
-      <nav class="navbar navbar-expand navbar-light bg-light nav-space">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+      <nav className="navbar navbar-expand navbar-light bg-light nav-space">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
             <CustomLink to="/">Home</CustomLink>
             <CustomLink to="/cart">
-              <i class="fa-solid fa-cart-shopping fa-1x"></i>
+              <i className="fa-solid fa-cart-shopping fa-1x"></i>
               {User && item.length > 0 && item.length}
             </CustomLink>
             

@@ -54,11 +54,11 @@ import React from "react";
               alt="producImage"
             ></img>
             <h4>{val.it.title}</h4>
-            <div className="d-flex flex-column align-self-center">
+            <div className="d-flex flex-column align-self-center text-center">
               {val.count}
               <div className="button-group">
                 <button className="btn btn-outline-success m4" onClick={()=>addPrice(val.it,val.count)}>+</button>
-                {val.count>1&&(<button className="btn btn-outline-danger" onClick={()=>{removePrice(val.it,val.count)}}>-</button>)}
+                <button className="btn btn-outline-danger" onClick={()=>{removePrice(val.it,val.count)}}>-</button>
               </div>
             </div>
             <h4>{val.it.price}</h4>
