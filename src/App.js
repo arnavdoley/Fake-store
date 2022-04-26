@@ -1,20 +1,14 @@
-import { useState } from "react";
+import { useState,lazy,Suspense } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { useUserContex } from "./contex/UserAuthContex";
-import Items from "./component/iteam/items";
-import ActionItem from "./component/iteam/ActionItem";
-import {
-  Routes,
-  Route,
-  Link,
-  useMatch,
-  useResolvedPath,
-  useNavigate,
-} from "react-router-dom";
-import Login from "./component/iteam/Login";
-import Signup from "./component/iteam/Signup";
+import { Routes, Route, Link,useMatch,useResolvedPath, useNavigate} from "react-router-dom";
 import ProtectedRout from "./component/iteam/ProtectedRoute";
+const Login=lazy(()=>import("./component/iteam/Login"));
+const Items = lazy(() => import(  "./component/iteam/items"))
+const ActionItem =lazy(()=>import ("./component/iteam/ActionItem"));
+const Signup= lazy(()=>import ("./component/iteam/Signup"));
+
 
 const mapToProps = (state) => ({
   item: state.iteam.item,
@@ -80,9 +74,9 @@ function App({ item, cart, dispatch }) {
           
           {error}
         </div>
-      )}
+      )}<Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path="/" element={<Items />} />
+        <Route path="/" element={<Items></Items>} />
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route
@@ -94,12 +88,14 @@ function App({ item, cart, dispatch }) {
           }
         />
       </Routes>
+      </Suspense>
     </div>
   );
 }
 function CustomLink({ children, to }) {
   let resolve = useResolvedPath(to);
   let match = useMatch({ path: resolve.pathname });
+
 
   return (
     <div className="CustomLink">
